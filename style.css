@@ -1,0 +1,174 @@
+body{
+    position:relative;
+    background-color: #141D2B;
+}
+
+button{
+    position: absolute;
+    border-radius: 50px;
+    background-color: #89EF04;
+    width: 150px;
+    height: 40px;
+    border-color:white;
+    font-family: Red Hat Display,sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    text-align:center;
+    
+}
+
+#publish{
+    left: 84px;
+    top: 47px;
+}
+
+#view{
+    left: 1122px;
+    top: 47px;
+}
+
+#welcome{
+    position: absolute;
+    width: 536px;
+    height: 160px;
+    top:50px;
+    left:400px;
+    font-family: 'ranchers',cursive;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 144px;
+    color: #FFFFFF;
+
+}
+
+#outline{
+    position: absolute;
+    width: 1440px;
+    height: 593px;
+    left: 0px;
+    top: 431px;
+
+    background: #A3B0CC;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+#userinput{
+    position: absolute;
+    width: 1000px;
+    height: 450px;
+    left: 185px;
+    top: 100px;
+    background: #FFFFFF;
+}
+
+#type{
+    position: absolute;
+    width: 100px;
+    height: 30px;
+    left: 20px;
+    top: 30px;
+    background: #141D2B;
+    font-family: 'Red Hat Mono',monospace;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    text-align: center;
+    font-weight: bold;
+    color: #FFFFFF;
+
+}
+
+#username{
+    position: absolute;
+    width: 450px;
+    height: 30px;
+    left: 20px;
+    top: 130px;
+    background: #141D2B;
+    font-family: 'Red Hat Mono',monospace;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    font-weight: bold;
+    color: #FFFFFF;
+}
+
+#password{
+    position: absolute;
+    width: 450px;
+    height: 30px;
+    left: 20px;
+    top: 195px;
+    background: #141D2B;
+    font-family: 'Red Hat Mono',monospace;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    font-weight: bold;
+    color: #FFFFFF;
+}
+
+#post{
+    position: absolute;
+    width: 700px;
+    height: 100px;
+    left: 20px;
+    top: 280px;
+    background:#141D2B;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-family: 'Red Hat Mono',monospace;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    font-weight: bold;
+    color: #FFFFFF;
+}
+
+#submit{
+    left: 450px;
+    top: 500px;
+}
+
+#name{
+    position: absolute;
+    width: 450px;
+    height: 30px;
+    left: 20px;
+    top: 40px;
+    background: #FFFFFF;
+    font-family: 'Red Hat Mono',monospace;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    font-weight: bold;
+    color: #141D2B;
+}
+
+#pass{
+    
+        position: absolute;
+        width: 450px;
+        height: 30px;
+        left: 20px;
+        top: 130px;
+        background: #FFFFFF;
+        font-family: 'Red Hat Mono',monospace;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 15px;
+        font-weight: bold;
+        color: #141D2B;
+}
+
+#show{
+    top:80px;
+    left:800px;
+}
+
+#home{
+    color:white;
+    position: absolute;
+    top:2px;
+    text-decoration: none;
+}

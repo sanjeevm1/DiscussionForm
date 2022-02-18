@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ranchers&family=Red+Hat+Display:wght@700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ranchers&family=Red+Hat+Display:wght@700&family=Red+Hat+Mono:ital,wght@1,300&family=Red+Rose:wght@300&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="http://localhost:1000/style">
+
+</head>
+<body>
+
+   <a href="http://localhost:1000/publish"><button id="publish">Publish</button></a>
+    <a href="http://localhost:1000/viewposts"><button id="view">Your Posts</button></a>
+     
+    
+    <h1 id="welcome">Welcome</h1>
+    
+    <div id="outline"></div>
+
+<script type="text/babel">
+
+const style={
+    width: "800px",
+    height:"auto",
+    backgroundColor: "#141D2B",
+    marginLeft:"270px",
+}
+
+const head={
+    fontFamily: "Red Rose",
+    fontStyle: "normal",
+    fontWeight: "normal",
+    fontSize: "18px",
+    color:"#89EF04",
+}
+
+const data={
+    fontFamily: "Red Hat Mono",
+    fontStyle: "normal",
+    fontWeight: "normal",
+    fontSize: "15px",
+    color:"#FFFFFF"
+}
+
+var http=new XMLHttpRequest();
+
+http.open("GET","http://localhost:1000/getPosts?flag=0");
+http.send();
+
+function Viewposts(props){
+    
+     var list=[];
+
+    for(var i=0;i<props.a.length;i++)
+    list.push(<div><br/><br/><br/>
+        <div style={style}>
+         <p style={head}><br/>&nbsp;&nbsp;{props.a[i].username}</p>
+         
+         <p style={data}>&nbsp;{props.a[i].data}</p>
+         <br/>
+        </div></div>);
+
+    return(<div>{list}</div>);
+}
+
+
+http.onload=()=>{
+     
+    var posts=JSON.parse(http.responseText)
+    ReactDOM.render(<Viewposts a={posts}/>,document.getElementById("outline"));
+}
+
+
+
+</script>
+    
+</body>
+</html>

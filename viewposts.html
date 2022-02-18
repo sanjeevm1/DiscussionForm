@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Posts</title>
+    <link rel="stylesheet" href="http://localhost:1000/style"/>
+
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ranchers&family=Red+Hat+Display:wght@700&family=Red+Hat+Mono:ital,wght@1,300&display=swap" rel="stylesheet">
+
+
+</head>
+<body>
+    <a id="home" href="http://localhost:1000/home">Home</a>
+     <input type="text" id="name" value="username"/>
+     <input type="text" id="pass" value="password">
+
+    <button id="show">Show</button>
+
+    <div style="top:200px" id="outline"></div>
+
+
+<script type="text/babel">
+
+var user=document.getElementById("name");
+var pass=document.getElementById("pass");
+
+const style={
+    width: "800px",
+    height:"auto",
+    backgroundColor: "#141D2B",
+    marginLeft:"270px",
+}
+
+const head={
+    fontFamily: "Red Rose",
+    fontStyle: "normal",
+    fontWeight: "normal",
+    fontSize: "18px",
+    color:"#89EF04",
+    cursor:"pointer"
+}
+
+const data={
+    fontFamily: "Red Hat Mono",
+    fontStyle: "normal",
+    fontWeight: "normal",
+    fontSize: "15px",
+    color:"#FFFFFF"
+} 
+
+
+
+function Viewposts(props){
+    
+    var list=[];
+
+    const del=(a)=>{
+
+    var http=new XMLHttpRequest();
+    console.log("hello");
+    http.open("GET",`http://localhost:1000/delete?id=${a}`);
+    http.send();
+    alert("Your post has deleted reload to see the changes")
+
+}
+
+   for(var i=0;i<props.a.length;i++){
+   let count=props.a[i].count;
+
+   list.push(<div><br/><br/><br/>
+       <div style={style}>
+        <p style={head} onClick={()=>del(count)}><br/>&nbsp;&nbsp;Delete</p>
+        
+        <p style={data}>&nbsp;{props.a[i].data}</p>
+        <br/>
+       </div></div>);
+}
+
+   return(<div>{list}</div>);
+}
+
+
+document.getElementById("show").onclick=()=>{
+     
+    var http=new XMLHttpRequest();
+
+    http.open("GET",`http://localhost:1000/getPosts?user=${user.value}&pass=${pass.value}&flag=1`);
+    http.send();
+    
+    http.onload=()=>{
+        console.log(http.responseText);
+        ReactDOM.render(<Viewposts a={JSON.parse(http.responseText)}/>,document.getElementById("outline"));
+    }
+    
+}
+</script>
+</body>
+</html>
